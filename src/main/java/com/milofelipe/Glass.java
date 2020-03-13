@@ -5,15 +5,16 @@ import lombok.Getter;
 
 @Getter
 public class Glass {
+
+    private final Glass leftParentGlass;
+    private final Glass rightParentGlass;
     private double capacityInMl;
     private double pouredLiquidVolumeInMl;
-    private Glass leftParentGlass;
-    private Glass rightParentGlass;
     private double volumeInMl;
     private double volumeOverflowInMl;
 
     @Builder
-    public Glass(double capacityInMl, double pouredLiquidVolumeInMl, Glass leftParentGlass, Glass rightParentGlass) {
+    private Glass(double capacityInMl, double pouredLiquidVolumeInMl, Glass leftParentGlass, Glass rightParentGlass) {
         this.capacityInMl = capacityInMl;
         this.pouredLiquidVolumeInMl = pouredLiquidVolumeInMl;
         this.leftParentGlass = leftParentGlass;
@@ -23,14 +24,18 @@ public class Glass {
     }
 
     private void calculateVolume() {
-        if (leftParentGlass != null) {
-            pouredLiquidVolumeInMl = pouredLiquidVolumeInMl + (leftParentGlass.getVolumeOverflowInMl() / 2);
-        }
+        calculateVolumeFromParentGlass(leftParentGlass);
+        calculateVolumeFromParentGlass(rightParentGlass);
+        calculateFinalVolumeAndOverflow();
+    }
 
-        if (rightParentGlass != null) {
-            pouredLiquidVolumeInMl = pouredLiquidVolumeInMl + (rightParentGlass.getVolumeOverflowInMl() / 2);
+    private void calculateVolumeFromParentGlass(Glass parentGlass) {
+        if (parentGlass != null) {
+            pouredLiquidVolumeInMl = pouredLiquidVolumeInMl + (parentGlass.getVolumeOverflowInMl() / 2);
         }
+    }
 
+    private void calculateFinalVolumeAndOverflow() {
         if (pouredLiquidVolumeInMl <= capacityInMl) {
             volumeInMl = pouredLiquidVolumeInMl;
         } else {
