@@ -2,7 +2,7 @@ package com.milofelipe;
 
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.assertEquals;
 
 public class WaterOverflowProblemSolverTest {
 
@@ -16,7 +16,7 @@ public class WaterOverflowProblemSolverTest {
         WaterOverflowProblemSolver waterOverflowProblemSolver = new WaterOverflowProblemSolver(glassVolumeInMl);
         double volume = waterOverflowProblemSolver.calculate(row, glassNum, pouredLiquidVolumeInMl);
 
-        assertTrue(218.75 == volume);
+        assertEquals(218.75, volume);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class WaterOverflowProblemSolverTest {
         WaterOverflowProblemSolver waterOverflowProblemSolver = new WaterOverflowProblemSolver(glassVolumeInMl);
         double volume = waterOverflowProblemSolver.calculate(row, glassNum, pouredLiquidVolumeInMl);
 
-        assertTrue(31.25 == volume);
+        assertEquals(31.25, volume);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class WaterOverflowProblemSolverTest {
         WaterOverflowProblemSolver waterOverflowProblemSolver = new WaterOverflowProblemSolver(glassVolumeInMl);
         double volume = waterOverflowProblemSolver.calculate(row, glassNum, pouredLiquidVolumeInMl);
 
-        assertTrue(0 == volume);
+        assertEquals(0.0, volume);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class WaterOverflowProblemSolverTest {
         WaterOverflowProblemSolver waterOverflowProblemSolver = new WaterOverflowProblemSolver(glassVolumeInMl);
         double volume = waterOverflowProblemSolver.calculate(row, glassNum, pouredLiquidVolumeInMl);
 
-        assertTrue(250 == volume);
+        assertEquals(250.0, volume);
     }
 
 }

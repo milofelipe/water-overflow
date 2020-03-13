@@ -16,27 +16,25 @@ public class WaterOverflowProblemSolver {
     public double calculate(int row, int glassNum, double pouredLiquidVolumeInMl) {
         Map<Integer, List<Glass>> stackOfGlasses = new HashMap<>();
 
-        for (int i = 0; i <= row; i++) {
-            List<Glass> previousRow = stackOfGlasses.get(i - 1);
+        for (int rowIndex = 0; rowIndex <= row; rowIndex++) {
+            List<Glass> previousRow = stackOfGlasses.get(rowIndex - 1);
             List<Glass> currentRow = new ArrayList<>();
 
-            for (int j = 0; j <= i; j++) {
+            for (int glassIndex = 0; glassIndex <= rowIndex; glassIndex++) {
                 Glass.GlassBuilder glassBuilder = Glass.builder().capacityInMl(glassVolumeInMl);
-
-                populateLeftAndRightParentGlasses(previousRow, glassBuilder, j);
-
+                populateLeftAndRightParentGlasses(previousRow, glassBuilder, glassIndex);
                 pourLiquidIfTopGlass(previousRow, glassBuilder, pouredLiquidVolumeInMl);
 
                 Glass glass = glassBuilder.build();
 
-                if (i == row && j == glassNum) {
+                if ((rowIndex == row) && (glassIndex == glassNum)) {
                     return glass.getVolumeInMl();
                 }
 
                 currentRow.add(glass);
             }
 
-            stackOfGlasses.put(i, currentRow);
+            stackOfGlasses.put(rowIndex, currentRow);
         }
 
         return 0;
