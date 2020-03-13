@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class WaterOverflowProblemSolverTest {
+public class WaterOverflowTest {
 
     @Test
     public void calculateVolumeOnRow3Glass2When2000mlPoured() {
@@ -13,8 +13,8 @@ public class WaterOverflowProblemSolverTest {
         int glassNum = 2;
         double pouredLiquidVolumeInMl = 2000;
 
-        WaterOverflowProblemSolver waterOverflowProblemSolver = new WaterOverflowProblemSolver(glassVolumeInMl);
-        double volume = waterOverflowProblemSolver.calculate(row, glassNum, pouredLiquidVolumeInMl);
+        WaterOverflow waterOverflow = new WaterOverflow(glassVolumeInMl);
+        double volume = waterOverflow.calculate(row, glassNum, pouredLiquidVolumeInMl);
 
         assertEquals(218.75, volume);
     }
@@ -26,8 +26,8 @@ public class WaterOverflowProblemSolverTest {
         int glassNum = 3;
         double pouredLiquidVolumeInMl = 2000;
 
-        WaterOverflowProblemSolver waterOverflowProblemSolver = new WaterOverflowProblemSolver(glassVolumeInMl);
-        double volume = waterOverflowProblemSolver.calculate(row, glassNum, pouredLiquidVolumeInMl);
+        WaterOverflow waterOverflow = new WaterOverflow(glassVolumeInMl);
+        double volume = waterOverflow.calculate(row, glassNum, pouredLiquidVolumeInMl);
 
         assertEquals(31.25, volume);
     }
@@ -39,8 +39,8 @@ public class WaterOverflowProblemSolverTest {
         int glassNum = 3;
         double pouredLiquidVolumeInMl = 2000;
 
-        WaterOverflowProblemSolver waterOverflowProblemSolver = new WaterOverflowProblemSolver(glassVolumeInMl);
-        double volume = waterOverflowProblemSolver.calculate(row, glassNum, pouredLiquidVolumeInMl);
+        WaterOverflow waterOverflow = new WaterOverflow(glassVolumeInMl);
+        double volume = waterOverflow.calculate(row, glassNum, pouredLiquidVolumeInMl);
 
         assertEquals(0.0, volume);
     }
@@ -52,8 +52,8 @@ public class WaterOverflowProblemSolverTest {
         int glassNum = 0;
         double pouredLiquidVolumeInMl = 500;
 
-        WaterOverflowProblemSolver waterOverflowProblemSolver = new WaterOverflowProblemSolver(glassVolumeInMl);
-        double volume = waterOverflowProblemSolver.calculate(row, glassNum, pouredLiquidVolumeInMl);
+        WaterOverflow waterOverflow = new WaterOverflow(glassVolumeInMl);
+        double volume = waterOverflow.calculate(row, glassNum, pouredLiquidVolumeInMl);
 
         assertEquals(250.0, volume);
     }

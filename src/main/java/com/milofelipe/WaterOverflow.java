@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class WaterOverflowProblemSolver {
+public class WaterOverflow {
 
     private double glassVolumeInMl;
 
-    public WaterOverflowProblemSolver(double glassVolumeInMl) {
+    public WaterOverflow(double glassVolumeInMl) {
         this.glassVolumeInMl = glassVolumeInMl;
     }
 
